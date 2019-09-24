@@ -2,7 +2,7 @@ dist: xenial
 arch: arm64
 sudo: required
 
-osx_image: xcode9.3
+#osx_image: xcode9.3
 
 language: c
 cache: ccache
@@ -20,7 +20,7 @@ before_install:
 
 os:
     - linux
-    - osx
+    #- osx
 
 compiler:
     - clang
@@ -117,8 +117,8 @@ matrix:
     exclude:
         - os: linux
           compiler: clang
-        - os: osx
-          compiler: gcc
+#         - os: osx
+#           compiler: gcc
 
 before_script:
     - env
@@ -152,7 +152,7 @@ before_script:
     - cd $top
 
 script:
-    - sudo apt-get -yq install make cmake g++
+    - sudo apt-get -yq install make cmake g++ clang
     - if [ -z "$BUILDONLY" ]; then
           make="make -s";
       else
