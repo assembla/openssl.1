@@ -153,7 +153,7 @@ before_script:
     - cd $top
 
 script:
-    - sudo apt-get -yq install make cmake g++ clang python3-pip
+    - sudo apt-get -yq install make cmake g++ clang libssl-dev libffi-dev python-dev
     - sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
     - if [ -z "$BUILDONLY" ]; then
           make="make -s";
