@@ -11,6 +11,7 @@ git:
     quiet: true
 
 before_install:
+    - sudo apt-get -yq install make cmake g++ clang libssl-dev libffi-dev
     - if [ -n "$COVERALLS" ]; then
           sudo apt install python-pip gcc -yq;
           pip install --user cpp-coveralls;
@@ -122,7 +123,6 @@ matrix:
 #           compiler: gcc
 
 before_script:
-    - sudo apt-get -yq install make cmake g++ clang libssl-dev libffi-dev
     - env
     - if [ "$TRAVIS_PULL_REQUEST" != "false" -a -n "$EXTENDED_TEST" ]; then
           (git log -1 $TRAVIS_COMMIT_RANGE | grep '\[extended tests\]' > /dev/null) || exit 0;
