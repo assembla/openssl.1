@@ -153,6 +153,7 @@ before_script:
 
 script:
     - sudo apt-get -yq install make cmake g++ clang python3-pip
+    - sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
     - if [ -z "$BUILDONLY" ]; then
           make="make -s";
       else
