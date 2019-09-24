@@ -152,7 +152,7 @@ before_script:
     - cd $top
 
 script:
-    - sudo apt-get -yq install make cmake g++ clang
+    - sudo apt-get -yq install make cmake g++ clang python3-pip
     - if [ -z "$BUILDONLY" ]; then
           make="make -s";
       else
