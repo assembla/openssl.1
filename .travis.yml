@@ -12,6 +12,7 @@ git:
 
 before_install:
     - if [ -n "$COVERALLS" ]; then
+          sudo apt install python-pip gcc -yq
           pip install --user cpp-coveralls;
       fi;
     - if expr "$CONFIG_OPTS" ":" ".*enable-external-tests" > /dev/null; then
