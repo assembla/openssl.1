@@ -11,9 +11,10 @@ git:
     quiet: true
 
 before_install:
-    - sudo apt-get -yq install make cmake g++ clang libssl-dev libffi-dev
+    - sudo apt-get -yq install make cmake g++ clang libssl-dev libffi-dev gcc
+    - sudo apt-get install python-pip
+    - sudo pip install virtualenv
     - if [ -n "$COVERALLS" ]; then
-          sudo apt install python-pip gcc -yq;
           pip install --user cpp-coveralls;
       fi;
     - if expr "$CONFIG_OPTS" ":" ".*enable-external-tests" > /dev/null; then
